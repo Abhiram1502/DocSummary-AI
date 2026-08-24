@@ -6,7 +6,7 @@ const api = axios.create({
 
 /**
  * Upload document and request AI summarization
- * @param {File} file 
+ * @param {File} file
  * @param {string} summaryLength ('short' | 'medium' | 'long')
  * @returns {Promise<Object>}
  */
@@ -15,7 +15,7 @@ export const summarizeDocument = async (file, summaryLength = 'medium') => {
   formData.append('file', file);
   formData.append('summaryLength', summaryLength);
 
-  const response = await api.post('/summary', formData, {
+  const response = await api.post('/api/summary', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
